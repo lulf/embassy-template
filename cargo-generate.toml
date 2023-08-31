@@ -1,0 +1,13 @@
+[template]
+cargo_generate_version = ">=0.17.4"
+ignore = [".git", ".github/dependabot.yml", ".github/workflows/ci_docker.yml", ".github/workflows/ci.yml", ".github/workflows/issue_handler.yml", "README.md"]
+
+[hooks]
+pre = ["pre-script.rhai"]
+
+[placeholders.chip]
+type = "string"
+prompt = "Which MCU to target?"
+# TODO: Auto-generate the extended list (i.e. from stm32-data)
+choices = ["rp2040", "nrf52833", "nrf52840", "stm32h743zi", "esp32c3"]
+default = "rp2040"

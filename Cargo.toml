@@ -1,0 +1,55 @@
+[package]
+edition = "2021"
+name = "{{project-name}}"
+version = "0.1.0"
+authors = ["{{authors}}"]
+resolver = "2"
+
+[dependencies]
+defmt = "0.3"
+defmt-rtt = "0.4"
+panic-probe = { version = "0.3", features = ["print-defmt"] }
+
+embedded-hal = "1.0.0-rc.1"
+embedded-hal-async = "1.0.0-rc.1"
+embedded-io = "0.5.0"
+embedded-io-async = "0.5.0"
+embedded-storage = "0.3.0"
+
+cortex-m-rt = "0.7.3"
+
+embassy-executor = { version = "0.2.0", features = ["arch-cortex-m", "executor-thread", "nightly", "defmt", "integrated-timers", "executor-interrupt"] }
+embassy-sync = { version = "0.2.0" }
+embassy-time = { version = "0.1.0", features = ["defmt", "defmt-timestamp-uptime", "unstable-traits"] }
+
+{% if chip contains "nrf" -%}
+embassy-nrf = { version = "0.1.0", features = ["defmt", "{{ chip }}", "time-driver-rtc1", "gpiote", "unstable-pac", "time"] }
+{% endif -%}
+
+{% if chip contains "stm32" -%}
+embassy-stm32 = { version = "0.1.0", features = ["nightly", "defmt", "{{ chip }}", "unstable-pac", "memory-x", "time-driver-any", "unstable-traits" ]  }
+{% endif -%}
+
+{% if chip contains "rp2040" -%}
+embassy-rp = { version = "0.1.0", features = ["defmt", "unstable-traits", "nightly", "unstable-pac", "time-driver", "critical-section-impl"] }
+{% endif -%}
+
+
+[patch.crates-io]
+embassy-executor = { git = "https://github.com/embassy-rs/embassy.git", branch = "main" }
+embassy-time = { git = "https://github.com/embassy-rs/embassy.git", branch = "main" }
+embassy-sync = { git = "https://github.com/embassy-rs/embassy.git", branch = "main" }
+embassy-embedded-hal = { git = "https://github.com/embassy-rs/embassy.git", branch = "main" }
+embassy-futures = { git = "https://github.com/embassy-rs/embassy.git", branch = "main" }
+
+{% if chip contains "nrf" -%}
+embassy-nrf = { git = "https://github.com/embassy-rs/embassy.git", branch = "main" }
+{% endif -%}
+
+{% if chip contains "stm32" -%}
+embassy-stm32 = { git = "https://github.com/embassy-rs/embassy.git", branch = "main" }
+{% endif -%}
+
+{% if chip contains "rp2040" -%}
+embassy-rp = { git = "https://github.com/embassy-rs/embassy.git", branch = "main" }
+{% endif -%}
