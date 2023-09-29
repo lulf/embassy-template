@@ -10,14 +10,14 @@ let targets = #{
         arch: "arm",
         toolchain: "nightly",
         rust_target: "thumbv7em-none-eabihf",
-        probe_chip: "nRF52833xxAA"
+        probe_chip: "nRF52833_xxAA"
     },
 
     nrf52840: #{
         arch: "arm",
         toolchain: "nightly",
         rust_target: "thumbv7em-none-eabihf",
-        probe_chip: "nRF52840xxAA"
+        probe_chip: "nRF52840_xxAA"
     },
 
     stm32h743zi: #{
