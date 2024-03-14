@@ -1,35 +1,42 @@
 let targets = #{
     rp2040: #{
         arch: "arm",
-        toolchain: "nightly",
         rust_target: "thumbv6m-none-eabi",
+	flash_start: "0x10000100",
+        flash_size: "2048K - 0x100",
+        ram_start: "0x20000000",
+        ram_size: "264K",
         probe_chip: "RP2040"
     },
 
     nrf52833: #{
         arch: "arm",
-        toolchain: "nightly",
         rust_target: "thumbv7em-none-eabihf",
-        probe_chip: "nRF52833_xxAA"
+        probe_chip: "nRF52833_xxAA",
+	flash_start: "0x00000000",
+        flash_size: "512K",
+        ram_start: "0x20000000",
+        ram_size: "128K"
     },
 
     nrf52840: #{
         arch: "arm",
-        toolchain: "nightly",
         rust_target: "thumbv7em-none-eabihf",
-        probe_chip: "nRF52840_xxAA"
+        probe_chip: "nRF52840_xxAA",
+	flash_start: "0x00000000",
+        flash_size: "1024K",
+        ram_start: "0x20000000",
+        ram_size: "256K"
     },
 
     stm32h743zi: #{
         arch: "arm",
-        toolchain: "nightly",
         rust_target: "thumbv7em-none-eabihf",
         probe_chip: "STM32743ZI"
     },
 
     esp32c3: #{
         arch: "riscv",
-        toolchain: "nightly",
         rust_target: "riscv32imc-unknown-none-elf",
         probe_chip: "esp32c3"
     },

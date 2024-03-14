@@ -16,7 +16,6 @@ embedded-io = "0.6.1"
 embedded-io-async = "0.6.1"
 embedded-storage = "0.3.1"
 
-cortex-m = { version = "0.7.6", features = ["critical-section-single-core"] }
 cortex-m-rt = "0.7.3"
 
 embassy-executor = { version = "0.5.0", features = ["task-arena-size-1024", "arch-cortex-m", "executor-thread", "defmt", "integrated-timers", "executor-interrupt"] }
@@ -24,13 +23,16 @@ embassy-sync = { version = "0.5.0" }
 embassy-time = { version = "0.3.0", features = ["defmt", "defmt-timestamp-uptime"] }
 
 {% if chip contains "nrf" -%}
+cortex-m = { version = "0.7.6", features = ["critical-section-single-core"] }
 embassy-nrf = { version = "0.1.0", features = ["defmt", "{{ chip }}", "time-driver-rtc1", "gpiote", "unstable-pac", "time"] }
 {% endif -%}
 
 {% if chip contains "stm32" -%}
-embassy-stm32 = { version = "0.1.0", features = ["defmt", "{{ chip }}", "unstable-pac", "memory-x", "time-driver-any", "unstable-traits" ]  }
+cortex-m = { version = "0.7.6", features = ["critical-section-single-core"] }
+embassy-stm32 = { version = "0.1.0", features = ["defmt", "{{ chip }}", "unstable-pac", "memory-x", "time-driver-any" ]  }
 {% endif -%}
 
 {% if chip contains "rp2040" -%}
-embassy-rp = { version = "0.1.0", features = ["defmt", "unstable-traits", "unstable-pac", "time-driver", "critical-section-impl"] }
+cortex-m = { version = "0.7.6" }
+embassy-rp = { version = "0.1.0", features = ["defmt", "unstable-pac", "time-driver", "critical-section-impl"] }
 {% endif -%}
