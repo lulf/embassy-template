@@ -1,11 +1,5 @@
 [target.'cfg(all(target_arch = "{{ arch }}", target_os = "none"))']
-runner = "probe-run --chip {{ probe_chip }}"
-rustflags = [
-  # Code-size optimizations.
-  "-Z", "trap-unreachable=no",
-  "-C", "inline-threshold=5",
-  "-C", "no-vectorize-loops",
-]
+runner = "probe-rs run --chip {{ probe_chip }}"
 
 [build]
 target = "{{ rust_target }}"
