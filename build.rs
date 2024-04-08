@@ -33,4 +33,7 @@ fn main() {
     println!("cargo:rustc-link-arg-bins=-Tlink.x");
     println!("cargo:rustc-link-arg-bins=-Tdefmt.x");
     println!("cargo:rustc-env=DEFMT_LOG=info");
+{% if chip contains "rp2040" -%}
+    println!("cargo:rustc-link-arg-bins=-Tlink-rp.x");
+{% endif -%}
 }
