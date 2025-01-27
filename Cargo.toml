@@ -5,6 +5,11 @@ version = "0.1.0"
 authors = ["{{authors}}"]
 resolver = "2"
 
+[[bin]]
+name = "{{project-name}}"
+test = false
+bench = false
+
 [dependencies]
 defmt = "0.3"
 defmt-rtt = "0.4"
