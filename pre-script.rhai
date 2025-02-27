@@ -38,6 +38,16 @@ let targets = #{
         ram_start: "0x20010000",
         ram_size: "192K",
     },
+    
+    nrf9151: #{
+        arch: "arm",
+        rust_target: "thumbv8m.main-none-eabihf",
+        probe_chip: "nRF9160_xxAA",
+    flash_start: "0x00000000",
+        flash_size: "1024K",
+        ram_start: "0x20010000",
+        ram_size: "192K",
+    },
 
     stm32h743zi: #{
         arch: "arm",

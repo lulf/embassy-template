@@ -1,5 +1,11 @@
 [target.'cfg(all(target_arch = "{{ arch }}", target_os = "none"))']
+{% if chip contains "nrf9151" -%}
+# The nrf9151 protects the flash on write and this needs the erase all flag to allow re-programming
+# You might need to run it about three times...
+runner = "probe-rs run --chip {{ probe_chip }} --allow-erase-all"
+{% else -%}
 runner = "probe-rs run --chip {{ probe_chip }}"
+{% endif -%}
 
 [build]
 target = "{{ rust_target }}"
