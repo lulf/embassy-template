@@ -9,5 +9,5 @@ pre = ["pre-script.rhai"]
 type = "string"
 prompt = "Which MCU to target?"
 # TODO: Auto-generate the extended list (i.e. from stm32-data)
-choices = ["rp2040", "nrf52833", "nrf52840", "nrf9160", "nrf9151", "stm32h743zi", "esp32c3"]
+choices = ["esp32c3",  "nrf9151", "nrf9160", "nrf52833", "nrf52840", "rp2040", "stm32h743zi"]
 default = "rp2040"
