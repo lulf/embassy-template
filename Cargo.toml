@@ -1,5 +1,5 @@
 [package]
-edition = "2021"
+edition = "2024"
 name = "{{project-name}}"
 version = "0.1.0"
 authors = ["{{authors}}"]
@@ -29,12 +29,12 @@ cortex-m = { version = "0.7.6", features = ["critical-section-single-core"] }
 embassy-nrf = { version = "0.3", features = ["defmt", "{{ chip }}", "time-driver-rtc1", "gpiote", "unstable-pac", "time"] }
 {% endif -%}
 
-{% if chip contains "nrf9160" -%}
-embassy-nrf = { git="https://github.com/embassy-rs/embassy.git", features = ["defmt", "nrf9160-s", "time-driver-rtc1", "gpiote", "unstable-pac", "time"] }
-{% endif -%}
-
 {% if chip contains "nrf9151" -%}
 embassy-nrf = { git="https://github.com/embassy-rs/embassy.git", features = ["defmt", "nrf9151-s", "time-driver-rtc1", "gpiote", "unstable-pac", "time"] }
+{% endif -%}
+
+{% if chip contains "nrf9160" -%}
+embassy-nrf = { git="https://github.com/embassy-rs/embassy.git", features = ["defmt", "nrf9160-s", "time-driver-rtc1", "gpiote", "unstable-pac", "time"] }
 {% endif -%}
 
 {% if chip contains "nrf91" -%}
@@ -50,14 +50,14 @@ embassy-sync = { version = "0.6" }
 embassy-time = { version = "0.4", features = ["defmt", "defmt-timestamp-uptime"] }
 {% endif -%}
 
-{% if chip contains "stm32" -%}
-cortex-m = { version = "0.7.6", features = ["critical-section-single-core"] }
-embassy-stm32 = { version = "0.1", features = ["defmt", "{{ chip }}", "unstable-pac", "memory-x", "time-driver-any" ]  }
-{% endif -%}
-
 {% if chip contains "rp2040" -%}
 cortex-m = { version = "0.7.6" }
 embassy-rp = { version = "0.3", features = ["defmt", "unstable-pac", "time-driver", "critical-section-impl", "rp2040"] }
+{% endif -%}
+
+{% if chip contains "stm32" -%}
+cortex-m = { version = "0.7.6", features = ["critical-section-single-core"] }
+embassy-stm32 = { version = "0.1", features = ["defmt", "{{ chip }}", "unstable-pac", "memory-x", "time-driver-any" ]  }
 {% endif -%}
 
 [profile.release]
