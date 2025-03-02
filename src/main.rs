@@ -19,6 +19,10 @@ async fn main(_spawner: Spawner) {
     let _p = embassy_rp::init(Default::default());
     {% endif -%}
 
+    {% if chip contains "rp235" -%}
+    let _periphs = embassy_rp::init(Default::default());
+    {% endif -%}
+
     loop {
         defmt::info!("Blink");
         Timer::after(Duration::from_millis(100)).await;
