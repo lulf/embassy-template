@@ -32,7 +32,7 @@ fn main() {
     println!("cargo:rustc-link-arg-bins=--nmagic");
     println!("cargo:rustc-link-arg-bins=-Tlink.x");
     println!("cargo:rustc-link-arg-bins=-Tdefmt.x");
-{% if chip contains "rp2040" -%}
+{% if chip contains "rp2040" or chip contains "rp235" -%}
     println!("cargo:rustc-link-arg-bins=-Tlink-rp.x");
 {% endif -%}
 }
