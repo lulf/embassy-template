@@ -6,7 +6,7 @@ use embassy_time::{Duration, Timer};
 use {defmt_rtt as _, panic_probe as _};
 
 #[embassy_executor::main]
-async fn main(_spawner: Spawner) {
+async fn main(_spawner: Spawner) -> ! {
     {% if chip contains "nrf" -%}
     let _p = embassy_nrf::init(Default::default());
     {% endif -%}

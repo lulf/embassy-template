@@ -87,8 +87,8 @@ let target = variable::get("chip");
 // Collapse RP235x `chip` variants to either:
 //     "rp2350" (typically Pico 2 (w/4MB external flash)) or
 //     "rp2354" (w/2MB on-die flash)
-let valid_rp2350_variants = ["rp2350", "rp2350a", "rp2350b"];
-let valid_rp2354_variants = ["rp2354", "rp2354a", "rp2354b"];
+let valid_rp2350_variants = ["rp2350a", "rp2350b"];
+let valid_rp2354_variants = ["rp2354a", "rp2354b"];
 
 if valid_rp2350_variants.contains(target) {
     target = "rp2350";
