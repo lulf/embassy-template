@@ -78,3 +78,179 @@ opt-level = 'z'
 debug = 2
 lto = true
 opt-level = "z"
+
+[lints.rust]
+future_incompatible = { level = "warn", priority = -1 }
+rust_2018_compatibility = { level = "warn", priority = -1 }
+rust_2018_idioms = { level = "warn", priority = -1 }
+rust_2021_compatibility = { level = "warn", priority = -1 }
+rust_2024_compatibility = { level = "warn", priority = -1 }
+# To use the `unsafe` keyword, do not remove the `unsafe_code = "forbid"` entry.
+# Instead, prefer to change it to `unsafe_code = "deny"` + opt-in with local use of
+# `#[allow(unsafe_code)]`'s on an as needed basis.
+bare_trait_objects = "forbid"
+unsafe_code = "forbid"
+unused_variables = "warn"
+
+# Uncomment before ship to reconcile use of possibly redundant crates, debug remnants, missing
+# license files and more
+missing_docs = "warn"
+warnings = "deny"
+
+[lints.clippy]
+# Safety-critical application lints
+pedantic = { level = "deny", priority = -1 }
+float_cmp_const = "deny"
+indexing_slicing = "deny"
+arithmetic_side_effects = "deny"
+unwrap_used = "deny"
+
+all = { level = "warn", priority = -1 }
+nursery = { level = "warn", priority = -1 }
+# End of safety-critical application lints
+
+doc_markdown = "allow"
+enum_glob_use = "forbid"
+enum_variant_names = "allow"
+equatable_if_let = "allow"
+error_impl_error = "allow"
+exhaustive_structs = "allow"
+implicit_return = "allow"
+integer_division_remainder_used = "allow"
+iter_nth_zero = "allow"
+manual_async_fn = "allow"
+match_bool = "allow"
+min_ident_chars = "allow"
+missing_errors_doc = "allow"
+missing_trait_methods = "allow"
+module_name_repetitions = "allow"
+multiple_crate_versions = "allow"
+obfuscated_if_else = "allow"
+pattern_type_mismatch = "allow"
+pub_use = "allow"
+pub_with_shorthand = "allow"
+question_mark_used = "allow"
+self_named_module_files = "allow"
+separated_literal_suffix = "allow"
+shadow_reuse = "allow"
+shadow_unrelated = "allow"
+similar_names = "allow"
+single_call_fn = "allow"
+too_long_first_doc_paragraph = "allow"
+unreachable = "allow"
+
+# Uncomment before ship to reconcile use of possibly redundant crates, debug remnants, missing
+# license files and more
+blanket_clippy_restriction_lints = "allow"
+cargo = { level = "warn", priority = -1 }
+restriction = { level = "warn", priority = -1 }
+
+[package.metadata.leptos]
+# Sets the name of the binary target used.
+# Optional, only necessary if the bin-package defines more than one target
+#bin-target = "phoenicia"
+
+# The name used by wasm-bindgen/cargo-leptos for the JS/WASM bundle. Defaults to the crate name
+output-name = "phoenicia_client"
+
+# The site root folder is where cargo-leptos generate all output. WARNING: all content of this folder will be erased on a rebuild. Use it in your server setup.
+site-root = "target/site"
+
+# The site-root relative folder where all compiled output (JS, WASM and CSS) is written
+# Defaults to pkg
+site-pkg-dir = "web_dist"
+
+
+# The tailwind input file.
+#
+# Optional, Activates the tailwind build
+tailwind-input-file = "style/tailwind.css"
+
+# The tailwind config file.
+#
+# Optional, defaults to "tailwind.config.js" which if is not present
+# is generated for you
+tailwind-config-file = "style/tailwind.css"
+
+# Assets source dir. All files found here will be copied and synchronized to site-root.
+# The assets-dir cannot have a sub directory with the same name/path as site-pkg-dir.
+#
+# Optional. Env: LEPTOS_ASSETS_DIR.
+assets-dir = "public"
+
+# The IP and port (ex: 127.0.0.1:3000) where the server serves the content. Use it in your server setup.
+site-addr = "127.0.0.1:3000"
+
+# The port to use for automatic reload monitoring
+reload-port = 3001
+
+# [Optional] Command to use when running end2end tests. It will run in the end2end dir.
+#   [Windows] for non-WSL use "npx.cmd playwright test"
+#   This binary name can be checked in Powershell with Get-Command npx
+end2end-cmd = "npx playwright test"
+end2end-dir = "end2end"
+
+#  The browserlist query used for optimizing the CSS.
+browserquery = "defaults"
+
+# The environment Leptos will run in, usually either "DEV" or "PROD"
+env = "DEV"
+
+# The features to use when compiling the bin target
+#
+# Optional. Can be over-ridden with the command line parameter --bin-features
+bin-features = ["ssr"]
+
+# If the --no-default-features flag should be used when compiling the bin target
+#
+# Optional. Defaults to false.
+bin-default-features = false
+
+# The features to use when compiling the lib target
+#
+# Optional. Can be over-ridden with the command line parameter --lib-features
+lib-features = ["hydrate"]
+
+# If the --no-default-features flag should be used when compiling the lib target
+#
+# Optional. Defaults to false.
+lib-default-features = false
+
+# The profile to use for the lib target when compiling for release
+#
+# Optional. Defaults to "release".
+lib-profile-release = "wasm-release"
+
+[profile.dev]
+codegen-units = 1
+debug = true
+debug-assertions = true
+lto = false
+opt-level = 0
+panic = "unwind"
+rpath = false
+
+[profile.release]
+codegen-units = 1
+debug = false
+debug-assertions = false
+lto = true
+opt-level = 3
+panic = "unwind"
+rpath = false
+
+[profile.test]
+codegen-units = 1
+debug = true
+debug-assertions = true
+lto = false
+opt-level = 0
+rpath = false
+
+# Defines a size-optimized profile for the WASM bundle in release mode
+[profile.wasm-release]
+inherits = "release"
+opt-level = 'z'
+lto = true
+codegen-units = 1
+panic = "abort"
