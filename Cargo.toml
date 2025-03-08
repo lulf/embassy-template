@@ -3,7 +3,7 @@ edition = "2024"
 name = "{{project-name}}"
 version = "0.1.0"
 authors = ["{{authors}}"]
-resolver = "2"
+resolver = "3"
 
 [[bin]]
 name = "{{project-name}}"
