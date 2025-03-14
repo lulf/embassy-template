@@ -51,17 +51,17 @@ embassy-time = { version = "0.4", features = ["defmt", "defmt-timestamp-uptime"]
 
 {% if chip contains "rp2040" -%}
 cortex-m = { version = "0.7.6" }
-embassy-rp = { version = "0.3", features = ["defmt", "unstable-pac", "time-driver", "critical-section-impl", "rp2040"] }
+embassy-rp = { version = "0.4", features = ["defmt", "unstable-pac", "time-driver", "critical-section-impl", "rp2040"] }
 {% endif -%}
 
 {% if chip == "rp2350a" or chip == "rp2354a" -%}
 cortex-m = { version = "0.7.6" }
-embassy-rp = { version = "0.3", features = ["defmt", "unstable-pac", "time-driver", "critical-section-impl", "rp235xa"] }
+embassy-rp = { version = "0.4", features = ["defmt", "unstable-pac", "time-driver", "critical-section-impl", "rp235xa"] }
 {% endif -%}
 
 {% if chip == "rp2350b" or chip == "rp2354b" -%}
 cortex-m = { version = "0.7.6" }
-embassy-rp = { version = "0.3", features = ["defmt", "unstable-pac", "time-driver", "critical-section-impl", "rp235xb"] }
+embassy-rp = { version = "0.4", features = ["defmt", "unstable-pac", "time-driver", "critical-section-impl", "rp235xb"] }
 {% endif -%}
 
 {% if chip contains "stm32" -%}
