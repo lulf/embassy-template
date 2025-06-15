@@ -76,7 +76,7 @@ let targets = #{
         flash_size: "2048K",
         ram_start: "0x20000000",
         ram_size: "128K",
-        probe_chip: "STM32743ZI"
+        probe_chip: "STM32H743ZI"
     },
 
     esp32c3: #{
