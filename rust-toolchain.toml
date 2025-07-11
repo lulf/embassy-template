@@ -6,5 +6,6 @@ components = [ "rustfmt" ]
 targets = [
     "thumbv6m-none-eabi",
     "thumbv7em-none-eabihf",
+    "thumbv8m.main-none-eabihf",
     "riscv32imac-unknown-none-elf",
 ]
