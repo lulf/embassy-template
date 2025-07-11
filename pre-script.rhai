@@ -72,7 +72,11 @@ let targets = #{
     stm32h743zi: #{
         arch: "arm",
         rust_target: "thumbv7em-none-eabihf",
-        probe_chip: "STM32743ZI"
+        flash_start: "0x08000000",
+        flash_size: "2048K",
+        ram_start: "0x20000000",
+        ram_size: "128K",
+        probe_chip: "STM32H743ZI"
     },
 
     esp32c3: #{

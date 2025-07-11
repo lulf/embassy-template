@@ -24,7 +24,7 @@ embedded-storage = "0.3.1"
 cortex-m-rt = "0.7.3"
 
 {% if chip contains "nrf52" -%}
-cortex-m = { version = "0.7.6", features = ["critical-section-single-core"] }
+cortex-m = { version = "0.7.7", features = ["critical-section-single-core"] }
 embassy-nrf = { version = "0.3", features = ["defmt", "{{ chip }}", "time-driver-rtc1", "gpiote", "unstable-pac", "time"] }
 {% endif -%}
 
@@ -37,7 +37,7 @@ embassy-nrf = { git="https://github.com/embassy-rs/embassy.git", features = ["de
 {% endif -%}
 
 {% if chip contains "nrf91" -%}
-cortex-m = { version = "0.7.6", features = ["critical-section-single-core"] }
+cortex-m = { version = "0.7.7", features = ["critical-section-single-core"] }
 # Due to embassy-net-nrf91 not yet being published to crates.io we need to use git versions of repos
 embassy-executor = { git="https://github.com/embassy-rs/embassy.git", features = ["task-arena-size-32768", "arch-cortex-m", "executor-thread", "defmt", "executor-interrupt"] }
 embassy-time = { git="https://github.com/embassy-rs/embassy.git", features = ["defmt", "defmt-timestamp-uptime"] }
@@ -50,23 +50,23 @@ embassy-time = { version = "0.4", features = ["defmt", "defmt-timestamp-uptime"]
 {% endif -%}
 
 {% if chip contains "rp2040" -%}
-cortex-m = { version = "0.7.6" }
+cortex-m = { version = "0.7.7" }
 embassy-rp = { version = "0.4", features = ["defmt", "unstable-pac", "time-driver", "critical-section-impl", "rp2040"] }
 {% endif -%}
 
 {% if chip == "rp2350a" or chip == "rp2354a" -%}
-cortex-m = { version = "0.7.6" }
+cortex-m = { version = "0.7.7" }
 embassy-rp = { version = "0.4", features = ["defmt", "unstable-pac", "time-driver", "critical-section-impl", "rp235xa"] }
 {% endif -%}
 
 {% if chip == "rp2350b" or chip == "rp2354b" -%}
-cortex-m = { version = "0.7.6" }
+cortex-m = { version = "0.7.7" }
 embassy-rp = { version = "0.4", features = ["defmt", "unstable-pac", "time-driver", "critical-section-impl", "rp235xb"] }
 {% endif -%}
 
 {% if chip contains "stm32" -%}
-cortex-m = { version = "0.7.6", features = ["critical-section-single-core"] }
-embassy-stm32 = { version = "0.1", features = ["defmt", "{{ chip }}", "unstable-pac", "memory-x", "time-driver-any" ]  }
+cortex-m = { version = "0.7.7", features = ["critical-section-single-core"] }
+embassy-stm32 = { version = "0.2", features = ["defmt", "{{ chip }}", "unstable-pac", "memory-x", "time-driver-any" ]  }
 {% endif -%}
 
 [profile.release]
