@@ -95,14 +95,14 @@ let targets = #{
         probe_chip: "STM32C011D6"
     },
 
-    stm32c011f4: #{
+    stm32c531cb: #{
         arch: "arm",
-        rust_target: "thumbv6m-none-eabi",
+        rust_target: "thumbv7em-none-eabihf",
         flash_start: "0x08000000",
-        flash_size: "16K",
+        flash_size: "128K",
         ram_start: "0x20000000",
-        ram_size: "6K",
-        probe_chip: "STM32C011F4"
+        ram_size: "32K",
+        probe_chip: "STM32C531CB"
     },
 
     stm32f030c6: #{
