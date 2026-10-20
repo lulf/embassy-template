@@ -99,7 +99,7 @@ let targets = #{
         arch: "arm",
         rust_target: "thumbv7em-none-eabihf",
         flash_start: "0x08000000",
-        flash_size: "128K",
+        flash_size: "192K",
         ram_start: "0x20000000",
         ram_size: "32K",
         probe_chip: "STM32C531CB"
@@ -233,7 +233,7 @@ let targets = #{
         arch: "arm",
         rust_target: "thumbv7em-none-eabihf",
         flash_start: "0x08000000",
-        flash_size: "256K",
+        flash_size: "384K",
         ram_start: "0x20000000",
         ram_size: "256K",
         probe_chip: "STM32L552CC"
@@ -259,7 +259,7 @@ let targets = #{
         arch: "arm",
         rust_target: "thumbv7em-none-eabihf",
         flash_start: "0x08000000",
-        flash_size: "512K",
+        flash_size: "768K",
         ram_start: "0x20000000",
         ram_size: "192K",
         probe_chip: "STM32U375CE"
@@ -269,7 +269,7 @@ let targets = #{
         arch: "arm",
         rust_target: "thumbv7em-none-eabihf",
         flash_start: "0x08000000",
-        flash_size: "128K",
+        flash_size: "192K",
         ram_start: "0x20000000",
         ram_size: "192K",
         probe_chip: "STM32U535CB"
