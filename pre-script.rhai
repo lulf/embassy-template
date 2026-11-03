@@ -179,6 +179,16 @@ let targets = #{
         probe_chip: "STM32G431C6"
     },
 
+    stm32g534c8: #{
+        arch: "arm",
+        rust_target: "thumbv7em-none-eabihf",
+        flash_start: "0x08000000",
+        flash_size: "64K",
+        ram_start: "0x20000000",
+        ram_size: "20K",
+        probe_chip: "STM32G534C8"
+    },
+
     stm32h503cb: #{
         arch: "arm",
         rust_target: "thumbv7em-none-eabihf",
@@ -255,24 +265,14 @@ let targets = #{
         probe_chip: "STM32U031C6"
     },
 
-    stm32u375ce: #{
+    stm32u335cb: #{
         arch: "arm",
         rust_target: "thumbv7em-none-eabihf",
         flash_start: "0x08000000",
-        flash_size: "768K",
+        flash_size: "128K",
         ram_start: "0x20000000",
-        ram_size: "192K",
-        probe_chip: "STM32U375CE"
-    },
-
-    stm32u535cb: #{
-        arch: "arm",
-        rust_target: "thumbv7em-none-eabihf",
-        flash_start: "0x08000000",
-        flash_size: "192K",
-        ram_start: "0x20000000",
-        ram_size: "192K",
-        probe_chip: "STM32U535CB"
+        ram_size: "16K",
+        probe_chip: "STM32U335CB"
     },
 
 };
